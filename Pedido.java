@@ -1,10 +1,19 @@
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pedido implements Prototype<Pedido> {
+public class Pedido implements Prototype<Pedido>, Serializable {
+    private static final long serialVersionUID = 1L;
+
     private static long proximoId = 1;
 
     private long id;
@@ -40,6 +49,23 @@ public class Pedido implements Prototype<Pedido> {
             copia.itens.add(new ItemPedido(item));
         }
         return copia;
+    }
+
+    public Pedido clonarPorSerializacao(){
+        try{
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            try (ObjectOutputStream out = new ObjectOutputStream(bytes)){
+                out.writeObject(this);
+            }
+            try (ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(bytes.toByteArray()))){
+                Pedido copia = (Pedido) in.readObject();
+                copia.id = proximoId++;
+                copia.criadoEm = LocalDate.now();
+                return copia;
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            throw new IllegalStateException("Falha ao copiar o pedido por serialização", e);
+        }
     }
 
     public long getId() { return id; }

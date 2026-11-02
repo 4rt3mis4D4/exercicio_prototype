@@ -1,7 +1,10 @@
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.function.Supplier;
 
 public class PedidosDemo {
+    private static final int COPIAS = 100_000;
+
     public static void main(String[] args) {
         
         CatalogoPedidos catalogo = new CatalogoPedidos();
@@ -79,6 +82,31 @@ public class PedidosDemo {
                 a.getCriadoEm().equals(hoje)
                 && b.getCriadoEm().equals(hoje)
                 && c.getCriadoEm().equals(hoje));
+
+        // RF12
+        Pedido s = modelo.clonarPorSerializacao();
+        s.setCliente("Teste");
+        s.getItens().get(0).setQuantidade(99);
+        verificar("RF12 cópia por serialização é profunda, com novo id e data de hoje",
+                s.getId() != modelo.getId()
+                && s.getItens().get(0) != modelo.getItens().get(0)
+                && s.getCriadoEm().equals(hoje)
+                && modelo.getCliente().equals("(modelo)")
+                && modelo.valorTotal().compareTo(new BigDecimal("315.00")) == 0);
+
+        // RF12
+        System.out.println();
+        System.out.println("Tempo de " + COPIAS + " cópias:");
+        System.out.println("clonar(): " + medir(modelo::clonar) + " ms");
+        System.out.println("clonarPorSerializacao(): " + medir(modelo::clonarPorSerializacao) + " ms");
+    }
+
+    private static long medir(Supplier<Pedido> copia) {
+        long inicio = System.nanoTime();
+        for (int i = 0; i < COPIAS; i++) {
+            copia.get();
+        }
+        return (System.nanoTime() - inicio) / 1_000_000;
     }
  
     private static void imprimir(Pedido p) {

@@ -1,6 +1,9 @@
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class ItemPedido {
+public class ItemPedido implements Serializable{
+    private static final long serialVersionUID = 1L;
+
     private String produto;
     private int quantidade;
     private BigDecimal precoUnitario;

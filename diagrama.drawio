@@ -1,0 +1,73 @@
+<mxfile host="65bd71144e">
+    <diagram id="t5wqVSGBS3OGvsN1I-LE" name="Page-1">
+        <mxGraphModel dx="4757" dy="2674" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="light-dark(#FFFFFF,#121212)" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-1" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Prototype&amp;lt;T&amp;gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ clonar() : T&lt;/p&gt;" vertex="1">
+                    <mxGeometry height="80" width="120" x="320" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-2" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Pedido&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- serialVersionUID: long {static final}&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- proximoId: long {static}&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- id: long&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- cliente: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- enderecoEntrega: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- itens: List&amp;lt;ItemPedido&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- criadoEm: LocalDate&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Pedido(cliente: String, enderecoEntrega: String)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ adicionarItem(ItemPedido)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ valorTotal() : BigDecimal&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ &amp;lt;&amp;lt;override&amp;gt;&amp;gt; clonar() : Pedido&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ clonarPorSerializacao() : Pedido&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getId(): long&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getCriadoEm(): LocalDate&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getCliente(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ setCliente(cliente: String): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getEnderecoEntrega(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ setEnderecoEntrega(endereco: String): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getItens(): List&amp;lt;ItemPedido&amp;gt;&lt;/p&gt;" vertex="1">
+                    <mxGeometry height="320" width="280" x="240" y="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-3" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;CatalogoPedidos&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- modelos: Map&amp;lt;String, Pedido&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ registrar(String chave, Pedido modelo)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ criar(String chave): Pedido&lt;/p&gt;" vertex="1">
+                    <mxGeometry height="160" width="240" y="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-4" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;ItemPedido&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;- serialVersionUID: long {static final}&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- produto: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- quantidade: int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- precoUnitario: BigDecimal&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ItemPedido(produto: String, quantidade: int, precoUnitario: BigDecimal)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ ItemPedido(origem: ItemPedido)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ subtotal() : BigDecimal&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ setQuantidade(int)&lt;/p&gt;" vertex="1">
+                    <mxGeometry height="160" width="400" x="520" y="960" as="geometry"/>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-5" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PedidosDemo&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ COPIAS: int&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ main(String[])&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- imprimir(Pedido)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- verificar(String, boolean)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- medir(Supplier): long&lt;/p&gt;" vertex="1">
+                    <mxGeometry height="120" width="160" x="40" y="1240" as="geometry"/>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-6" edge="1" parent="1" source="z7VK2-L3ZGZ8B6VWnPWk-2" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="z7VK2-L3ZGZ8B6VWnPWk-1" value="">
+                    <mxGeometry relative="1" width="160" as="geometry">
+                        <mxPoint x="330" y="450" as="sourcePoint"/>
+                        <mxPoint x="490" y="450" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-7" edge="1" parent="1" source="z7VK2-L3ZGZ8B6VWnPWk-4" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="z7VK2-L3ZGZ8B6VWnPWk-2" value="">
+                    <mxGeometry relative="1" width="160" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="720" y="680"/>
+                        </Array>
+                        <mxPoint x="390" y="970" as="sourcePoint"/>
+                        <mxPoint x="560" y="800" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;0..*&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="30" width="60" x="550" y="660" as="geometry"/>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1" vertex="1">
+                    <mxGeometry height="30" width="60" x="510" y="680" as="geometry"/>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-11" edge="1" parent="1" source="z7VK2-L3ZGZ8B6VWnPWk-3" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="z7VK2-L3ZGZ8B6VWnPWk-2" value="">
+                    <mxGeometry relative="1" width="160" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="120" y="680"/>
+                        </Array>
+                        <mxPoint x="220" y="890" as="sourcePoint"/>
+                        <mxPoint x="200" y="720" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;0..*&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="30" width="60" x="160" y="660" as="geometry"/>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-15" edge="1" parent="1" source="z7VK2-L3ZGZ8B6VWnPWk-5" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="z7VK2-L3ZGZ8B6VWnPWk-3" value="">
+                    <mxGeometry relative="1" width="160" as="geometry">
+                        <mxPoint x="250" y="970" as="sourcePoint"/>
+                        <mxPoint x="410" y="970" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="z7VK2-L3ZGZ8B6VWnPWk-16" edge="1" parent="1" source="z7VK2-L3ZGZ8B6VWnPWk-5" style="endArrow=open;endSize=12;dashed=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="z7VK2-L3ZGZ8B6VWnPWk-2" value="">
+                    <mxGeometry relative="1" width="160" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="380" y="1300"/>
+                        </Array>
+                        <mxPoint x="390" y="1310" as="sourcePoint"/>
+                        <mxPoint x="390" y="1190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

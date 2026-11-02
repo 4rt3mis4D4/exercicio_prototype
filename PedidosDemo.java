@@ -4,7 +4,6 @@ import java.time.LocalDate;
 public class PedidosDemo {
     public static void main(String[] args) {
         
-        // Pedido-modelo
         CatalogoPedidos catalogo = new CatalogoPedidos();
         Pedido modelo = new Pedido("(modelo)", "-");
         modelo.adicionarItem(new ItemPedido("Café 500g", 10, new BigDecimal("18.90")));
@@ -12,18 +11,18 @@ public class PedidosDemo {
         modelo.adicionarItem(new ItemPedido("Filtro de papel", 5, new BigDecimal("7.20")));
         catalogo.registrar("reposicao-mensal", modelo);
  
-        // Pedido A: sem ajuste
+        // Pedido A
         Pedido a = catalogo.criar("reposicao-mensal");
         a.setCliente("Mercado Central");
         a.setEnderecoEntrega("Rua das Flores, 120");
  
-        // Pedido B: café com quantidade 20
+        // Pedido B
         Pedido b = catalogo.criar("reposicao-mensal");
         b.setCliente("Padaria Boa Massa");
         b.setEnderecoEntrega("Av. Paraná, 800");
         b.getItens().get(0).setQuantidade(20);
  
-        // Pedido C: novo item
+        // Pedido C
         Pedido c = catalogo.criar("reposicao-mensal");
         c.setCliente("Restaurante do Porto");
         c.setEnderecoEntrega("Rua do Cais, 45");
@@ -44,7 +43,7 @@ public class PedidosDemo {
         verificar("CA-02 total do modelo continua 315,00",
                 modelo.valorTotal().compareTo(new BigDecimal("315.00")) == 0);
  
-        verificar("CA-03 totais A=315,00 B=504,00 C=387,00",
+        verificar("CA-03 totais A = 315,00 | B = 504,00 | C = 387,00",
                 a.valorTotal().compareTo(new BigDecimal("315.00")) == 0
                 && b.valorTotal().compareTo(new BigDecimal("504.00")) == 0
                 && c.valorTotal().compareTo(new BigDecimal("387.00")) == 0);
@@ -74,7 +73,7 @@ public class PedidosDemo {
         verificar("CA-07 cliente do modelo continua \"(modelo)\"",
                 modelo.getCliente().equals("(modelo)"));
  
-        // RF07: cada cópia recebe a data de criação de hoje
+        
         LocalDate hoje = LocalDate.now();
         verificar("RF07 cópias criadas com a data de hoje (" + hoje + ")",
                 a.getCriadoEm().equals(hoje)
@@ -85,8 +84,8 @@ public class PedidosDemo {
     private static void imprimir(Pedido p) {
         System.out.println("Pedido #" + p.getId() + " │ " + p.getCliente()
                 + " │ " + p.getEnderecoEntrega()
-                + " │ itens=" + p.getItens().size()
-                + " │ total=R$ " + p.valorTotal().toString().replace('.', ','));
+                + " │ itens = " + p.getItens().size()
+                + " │ total = R$ " + p.valorTotal().toString().replace('.', ','));
     }
  
     private static void verificar(String descricao, boolean ok) {
